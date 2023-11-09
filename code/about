@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Problem Generator</title>
+</head>
+<body>
+    <h1>Math Problem Generator</h1>
+    
+    <button onclick="generateMathProblem()">Generate Math Problem</button>
+    <p id="mathProblem"></p>
+    
+    <script>
+        function generateMathProblem() {
+            const num1 = getRandomNumber(1, 10);
+            const num2 = getRandomNumber(1, 10);
+            const operator = getRandomOperator();
+            
+            const mathProblem = `${num1} ${operator} ${num2}`;
+            document.getElementById('mathProblem').innerText = `Math Problem: ${mathProblem}`;
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function getRandomOperator() {
+            const operators = ['+', '-', '*', '/'];
+            const randomIndex = Math.floor(Math.random() * operators.length);
+            return operators[randomIndex];
+        }
+    </script>
+</body>
+</html>
